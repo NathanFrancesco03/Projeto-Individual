@@ -99,13 +99,16 @@ body {
 
 .social .estadio img{
   width: 400px;
-  height: 450px;
   border-radius: 100px;
-  margin: 20%;
+}
+
+.vilabelmiro{
+  width: 400px;
 }
 
 .social .container{
   display: flex;
+  align-items: center;
 }
 
 .social .conteudo{
@@ -240,16 +243,15 @@ input {
 
 .sobreNos {
   background-color: black;
-  display: flex;
   justify-content: center;
   align-items: center;
-  width: 600px;
 }
 
 .sobreNos .container {
   padding: 40px 0 40px 0;
-  /* border: 3px solid red; */
-  
+  display: flex;
+  align-items: center;
+  /*border: 3px solid red;*/
 }
 
 .sobreNos h1 {
@@ -273,7 +275,7 @@ input {
 .sobreNos .box-imagem {
   text-align: center;
   display: inline-block;
-  width: 350px;
+  width: 320px;
   padding: 25px;
   border-radius: 15px;
 }
@@ -299,10 +301,18 @@ input {
 /* VIDEO */
 
 .video {
+  height: 700px;
+  align-items: center;
+  justify-content: center;
+}
+
+.video h1 {
+  text-align: center;
+}
+
+.vidconteudo {
   display: flex;
   justify-content: center;
-  align-items: center;
-  height: 700px;
 }
 
 /* FOOTER */
