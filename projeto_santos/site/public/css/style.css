@@ -84,18 +84,17 @@ body {
   font-weight: 800;
 }
 
-/* missao visao valores */
+/* Social */
 
 .social {
   height: 600px;
   background-color: black;
-  display: flex;
   justify-content: center;
   align-items: center;
-  width: 500px;
 }
 .social h1{
   color: white;
+  text-align: center;
 }
 
 .social .estadio img{
