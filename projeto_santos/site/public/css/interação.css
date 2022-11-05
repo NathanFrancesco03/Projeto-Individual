@@ -1,0 +1,29 @@
+.banner {
+    background-image: url();
+    background-color: white;
+    height: 700px;
+}
+
+.container{
+    display: flex;
+    align-items: center;
+}
+
+.banner p{
+    font-size: medium;
+    color: black;
+    font-weight: bold;
+}
+
+.banner button{
+    align-items: center;
+}
+
+#div_msg{
+    color: black;
+    height: 40px;
+    text-align: center;
+    align-items: center;
+    justify-content: center;
+
+}
