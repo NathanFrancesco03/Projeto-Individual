@@ -1,12 +1,25 @@
 .banner {
-    background-image: url();
+    background-image: url(https://images7.alphacoders.com/985/985227.jpg);
     background-color: white;
     height: 700px;
+    align-items: center;
 }
 
-.container{
-    display: flex;
-    align-items: center;
+.banner .containers{
+    background-color: white;
+    display: grid;
+    text-align: center;
+    justify-content: center;
+    width: 40%;
+    height: 455px;
+}
+
+.banner .containers button {
+    background-color: black;
+    border-radius: 100px;
+    width: 100px;
+    height: 30px;
+    color: white;
 }
 
 .banner p{
@@ -19,11 +32,16 @@
     align-items: center;
 }
 
-#div_msg{
+.banner .containers #div_msg1{
     color: black;
-    height: 40px;
-    text-align: center;
+    display: flex;
     align-items: center;
     justify-content: center;
+    font-weight: bold;
+    font-size: large;
+}
 
+.banner .containers #div_msg2{
+    color: black;
+    font-weight: bold;
 }

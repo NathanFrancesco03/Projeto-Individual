@@ -31,7 +31,8 @@
     </div>
 
     <div class="banner">
-        <div class="container">
+        <div id="div_quiz" class="containers">
+    <div id="div_tudo">
             <div id="box1">
             <p>Maior jogador da história</p>
         <select name="" id="sel_maior">
@@ -45,7 +46,7 @@
         <br>
         <p>Quantos paulistas o santos tem</p>
         <select name="" id="sel_pal">
-            <option value="0">-SELECIONE-</option>
+            <option value="">-SELECIONE-</option>
             <option value="0">21</option>
             <option value="0">29</option>
             <option value="0">28</option>
@@ -75,7 +76,7 @@
         <br>
         <p>Quantas Copa do Brasil o Santos tem</p>
         <select name="" id="sel_copa">
-            <option value="0">-SELECIONE-</option>
+            <option value="">-SELECIONE-</option>
             <option value="0">0</option>
             <option value="0">2</option>
             <option value="1">1</option>
@@ -84,7 +85,7 @@
         </select>
         <br>
         </div>
-        <div>
+        <div id="box2">
     <p>Quantos Brasileiros o Santos tem</p>
     <select name="" id="sel_brasi">
         <option value="">-SELECIONE-</option>
@@ -136,12 +137,13 @@
     </select>
     <br>
     <button onclick="botao()">CHUTE!</button>
-        <div id="div_msg"></div>
-    </div>
-    <div>
-    </div>
 </div>
-    </div>
+</div>
+<div class="class_msg" id="div_msg"></div>
+<div id="div_msg1"></div>
+<div id="div_msg2"></div>
+</div>
+</div>
     
     <!--footer inicio-->
     <div class="footer">
@@ -164,7 +166,6 @@
 <script>
     b_usuario.innerHTML = sessionStorage.NOME_USUARIO;
     function botao() {
-        IsValid = false
         var maior = Number(sel_maior.value)
         var paulista = Number(sel_pal.value)
         var goleador = Number(sel_gol.value)
@@ -176,6 +177,7 @@
         var trio = Number(sel_trio.value)
         var treinador = Number(sel_trei.value)
         div_msg.innerHTML = " "
+        div_tudo.style.display = "none"
         
         var pontos = maior + paulista + goleador + libertadores + copa + brasileiro + mundiais + neymar + trio + treinador
         
@@ -183,11 +185,11 @@
             div_msg.innerHTML += `<img style = width:50px;  src="https://upload.wikimedia.org/wikipedia/commons/thumb/2/20/Trof%C3%A9u_de_NFA.svg/512px-Trof%C3%A9u_de_NFA.svg.png" alt="">`          
         }
         if (pontos >= 6) {
-            div_msg.innerHTML += `<br> Parabéns você tirou ${pontos}/10` 
-            div_msg.innerHTML += `<br> Você conhece mesmo o Santastico <img style = width:50px;  src="https://toppng.com/uploads/preview/mascote-do-santos-11563338336jo7gqpt4xd.png" alt="">`
+            div_msg1.innerHTML += `<br> Parabéns você tirou ${pontos}/10` 
+            div_msg2.innerHTML += `<br> Você conhece mesmo o Santastico <img style = width:80px;  src="https://toppng.com/uploads/preview/mascote-do-santos-11563338336jo7gqpt4xd.png" alt="">`
         }
         else{
-            div_msg.innerHTML += ` <br> Você acertou ${pontos} <img style = width:20px; src="https://images.emojiterra.com/google/android-11/512px/1f62d.png" alt="">`
+            div_msg1.innerHTML += ` <br> Você acertou ${pontos} <img style = width:80px; src="https://images.emojiterra.com/google/android-11/512px/1f62d.png" alt="">`
         }
 
     }
