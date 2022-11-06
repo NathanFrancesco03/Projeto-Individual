@@ -6,7 +6,7 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
-    <title>SANTOS | PÁGINA INICIAL</title>
+    <title>SANTOS | QUIZ</title>
 
     <script src="./js/funcoes.js"></script>
 
@@ -21,10 +21,16 @@
         <div class="container">
             <img style="width: 100px;" src="https://logodownload.org/wp-content/uploads/2017/02/santos-logo-escudo.png" alt="">
             <ul class="navbar">
+                <li>
+                    <a href="logado.html">Inicio</a>
+                </li>
                 <li class="agora">Quiz</li>
                 <li>|</li>
                 <li>
                     <a>Olá <span id="b_usuario">usuario</span></a>
+                </li>
+                <li>
+                    <a href="./index.html">Sair</a>
                 </li>
             </ul>
         </div>
@@ -185,7 +191,7 @@
             div_msg.innerHTML += `<img style = width:50px;  src="https://upload.wikimedia.org/wikipedia/commons/thumb/2/20/Trof%C3%A9u_de_NFA.svg/512px-Trof%C3%A9u_de_NFA.svg.png" alt="">`          
         }
         if (pontos >= 6) {
-            div_msg1.innerHTML += `<br> Parabéns você tirou ${pontos}/10` 
+            div_msg1.innerHTML += `<br> Parabéns você acertou ${pontos}/10` 
             div_msg2.innerHTML += `<br> Você conhece mesmo o Santastico <img style = width:80px;  src="https://toppng.com/uploads/preview/mascote-do-santos-11563338336jo7gqpt4xd.png" alt="">`
         }
         else{
