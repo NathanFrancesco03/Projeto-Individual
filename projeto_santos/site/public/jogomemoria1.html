@@ -1,0 +1,170 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <link rel="stylesheet" href="css/telalogado.css">
+    <link rel="stylesheet" href="css/jogomemoria.css">
+</head>
+<body>
+<div class="conteudo">
+    <div class="navegation" >
+        <ul>
+            <li class="list">
+                <a href="#">
+                <span class="icon"><ion-icon name="home-outline"></ion-icon></span>
+                <span class="title">Home</span>
+                </a>
+            </li>
+            <li class="list">
+                <a href="quiz.html">
+                <span class="icon"><ion-icon name="chatbubble-outline"></ion-icon></span>
+                <span class="title">Quiz</span>
+                </a>
+            </li>
+            <li class="list active">
+                <a href="jogomemoria1.html">
+                <span class="icon"><ion-icon name="eye-outline"></ion-icon></span>
+                <span class="title">Jogo da memmória</span>
+                </a>
+            </li>
+            <li class="list">
+                <a href="index.html">
+                <span class="icon"><ion-icon name="exit-outline"></ion-icon></span>
+                <span class="title">Sair</span>
+                </a>
+            </li>
+        </ul>
+    </div>
+</div>
+    <div class="jogo">
+        <h1>~ Jogo dos Ídolos ~</h1>
+        <p>Pontuação: <span id="pontuacao"></span></p>
+        <div class="tabuleiro"></div>
+    </div>
+    <script type="module" src="https://unpkg.com/ionicons@5.5.2/dist/ionicons/ionicons.esm.js"></script>
+    <script nomodule src="https://unpkg.com/ionicons@5.5.2/dist/ionicons/ionicons.js"></script>
+</body>
+</html>
+<script>
+    const list = document.querySelectorAll('.list');
+    function activelink() {
+        list.forEach((item) =>
+        item.classList.remove('active'));
+        this.classList.add('active');
+    }
+    list.forEach((item) =>
+    item.addEventListener('click',activelink)
+    );
+    document.addEventListener('DOMContentLoaded', () => {
+  const arrayDeCartas = [
+    {
+      name: '1',
+      img: 'https://i.superesportes.com.br/qMvt2wwpNsW_7iXNyuvAFQ-s7t0=/650x857/smart/imgsapp.mg.superesportes.com.br/app/noticia_126420360808/2021/10/23/3944491/20211023091714691770e.jpg'
+    },
+    {
+      name: '2',
+      img: 'https://lendasdofutebol.com/wp-content/uploads/2021/11/santos-zito-gerente-295x395.jpg'
+    },
+    {
+      name: '3',
+      img: 'https://www.lance.com.br/files/article_main/uploads/2016/11/24/58375743443dd.jpeg'
+    },
+    {
+      name: '4',
+      img: 'https://media.santosfc.com.br/wp-content/uploads/2022/07/Carlos-Alberto-Torres-4-1.jpg'
+    },
+    {
+      name: '5',
+      img: `https://files.aredacao.com.br/upload/content/elano-se-aposenta-e-fara-parte-da-comissao-tecnica-do-santos.jpg`
+    },
+    {
+      name: '6',
+      img: 'https://p2.trrsf.com/image/fget/cf/1200/1600/middle/images.terra.com/2022/01/15/neymar-comecou-a-sua-carreira-jogando-pelo-santos-ricardo-saibun-santos-fc.jpeg'
+    },
+    {
+      name: '1',
+      img: 'https://i.superesportes.com.br/qMvt2wwpNsW_7iXNyuvAFQ-s7t0=/650x857/smart/imgsapp.mg.superesportes.com.br/app/noticia_126420360808/2021/10/23/3944491/20211023091714691770e.jpg'
+    },
+    {
+      name: '2',
+      img: 'https://lendasdofutebol.com/wp-content/uploads/2021/11/santos-zito-gerente-295x395.jpg'
+    },
+    {
+      name: '3',
+      img: 'https://www.lance.com.br/files/article_main/uploads/2016/11/24/58375743443dd.jpeg'
+    },
+    {
+      name: '4',
+      img: 'https://media.santosfc.com.br/wp-content/uploads/2022/07/Carlos-Alberto-Torres-4-1.jpg'
+    },
+    {
+      name: '5',
+      img: 'https://files.aredacao.com.br/upload/content/elano-se-aposenta-e-fara-parte-da-comissao-tecnica-do-santos.jpg'
+    },
+    {
+      name: '6',
+      img: 'https://p2.trrsf.com/image/fget/cf/1200/1600/middle/images.terra.com/2022/01/15/neymar-comecou-a-sua-carreira-jogando-pelo-santos-ricardo-saibun-santos-fc.jpeg'
+    }
+  ]
+  arrayDeCartas.sort(() => 0.5 - Math.random())
+  const tabuleiro = document.querySelector('.tabuleiro')
+  const resultado = document.querySelector('#pontuacao')
+  const placeholder = 'https://media.santosfc.com.br/wp-content/uploads/2022/04/Asset-2.jpg'
+  const branco = 'https://peixeornamental.files.wordpress.com/2011/06/santos-baleia.jpg'
+
+  var cartasClicadas = []
+  var cartasClicadasId = []
+  var cartasCombinadas = []
+
+  function criarTabuleiro() {
+    for (let i = 0; i < arrayDeCartas.length; i++) {
+      var carta = document.createElement('img')
+      carta.setAttribute('src', placeholder)
+      carta.setAttribute('data-id', i)
+      carta.addEventListener('click', viraCarta)
+      tabuleiro.appendChild(carta)
+    }
+  }
+
+  function viraCarta() {
+    var cartaId = this.getAttribute('data-id')
+    cartasClicadas.push(arrayDeCartas[cartaId].name)
+    cartasClicadasId.push(cartaId)
+    this.setAttribute('src', arrayDeCartas[cartaId].img)
+    if (cartasClicadas.length === 2) {
+      setTimeout(checarPorCombinacao, 500)
+    }
+  }
+  function checarPorCombinacao() {
+    var cartas = document.querySelectorAll('img')
+    const primeiraCarta = cartasClicadasId[0]
+    const segundaCarta = cartasClicadasId[1]
+    if (primeiraCarta === segundaCarta) {
+      cartas[primeiraCarta].setAttribute('src', placeholder)
+      cartas[segundaCarta].setAttribute('src', placeholder)
+      alert('Você clicou na mesma carta!')
+    }
+    else if (cartasClicadas[0] === cartasClicadas[1]) {
+      cartas[primeiraCarta].setAttribute('src', branco)
+      cartas[segundaCarta].setAttribute('src', branco)
+      cartasCombinadas.push(cartasClicadas)
+      cartas[primeiraCarta].removeEventListener('click', viraCarta)
+      cartas[segundaCarta].removeEventListener('click', viraCarta)
+    }
+    else {
+      cartas[primeiraCarta].setAttribute('src', placeholder)
+      cartas[segundaCarta].setAttribute('src', placeholder)
+    }
+    cartasClicadas = []
+    cartasClicadasId = []
+    resultado.textContent = cartasCombinadas.length
+    if (cartasCombinadas.length === arrayDeCartas.length / 2) {
+      resultado.textContent = 'Parabéns! Você encontrou todas as cartas!'
+    }
+  }
+  criarTabuleiro()
+})
+</script>
