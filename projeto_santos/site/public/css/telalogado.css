@@ -85,7 +85,7 @@ body{
     background: #818080;
 }
 
-.slider {
+/* .slider {
     display: block;
     height: 293px;
     width: 600px;
@@ -144,8 +144,9 @@ body{
     opacity: 1;
     visibility: visible;
     z-index: 10;
-}
+} */
 
+    
 .banner {
     background-image: url(https://images7.alphacoders.com/985/985227.jpg);
     background-color: white;
@@ -195,5 +196,28 @@ body{
 
 .banner .containers #div_msg2{
     color: black;
+    font-weight: bold;
+}
+
+.hello {
+    color: black;
+    display: flex;
+    font-size: 20px;
+    margin-left: 15%;
+}
+
+.img_banner {
+    color: white;
+    text-align: center;
+    justify-content: center;
+    width: 1390px;
+    background-image: url(https://i0.wp.com/emotioncard.com.br/wp-content/uploads/2018/10/papel-de-parede-santos-pc18.jpg?fit=1600%2C900&ssl=1);
+}
+
+.img_banner .container {
+    margin-top: 30%;
+    align-items: center;
+    justify-content: center;
+    font-size: 50px;
     font-weight: bold;
 }

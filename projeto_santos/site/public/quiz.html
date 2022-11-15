@@ -4,13 +4,17 @@
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Document</title>
+    <title>SANTOS | QUIZ</title>  
+    <link rel="icon" href="https://logodownload.org/wp-content/uploads/2017/02/santos-logo-escudo.png">
     <link rel="stylesheet" href="css/telalogado.css">
 </head>
 <body>
 <div class="conteudo">
     <div class="navegation" >
         <ul>
+            <div class="hello">
+                <h2>Olá, <span id="b_usuario">usuário</span>!</h2>
+            </div>
             <li class="list">
                 <a href="telalogado.html">
                 <span class="icon"><ion-icon name="home-outline"></ion-icon></span>
@@ -18,7 +22,7 @@
                 </a>
             </li>
             <li class="list active">
-                <a href="quiz.html">
+                <a href="#">
                 <span class="icon"><ion-icon name="chatbubble-outline"></ion-icon></span>
                 <span class="title">Quiz</span>
                 </a>
@@ -157,6 +161,7 @@
 </body>
 </html>
 <script>
+    b_usuario.innerHTML = sessionStorage.NOME_USUARIO;
     const list = document.querySelectorAll('.list');
     function activelink() {
         list.forEach((item) =>

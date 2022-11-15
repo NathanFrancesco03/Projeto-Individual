@@ -4,13 +4,17 @@
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Document</title>
+    <title>SANTOS | LOGADO</title>
+    <link rel="icon" href="https://logodownload.org/wp-content/uploads/2017/02/santos-logo-escudo.png">
     <link rel="stylesheet" href="css/telalogado.css">
 </head>
 <body>
 <div class="conteudo">
     <div class="navegation" >
         <ul>
+            <div class="hello">
+                <h2>Olá, <span id="b_usuario">usuário</span>!</h2>
+            </div>
             <li class="list active">
                 <a href="#">
                 <span class="icon"><ion-icon name="home-outline"></ion-icon></span>
@@ -38,28 +42,20 @@
         </ul>
     </div>
 </div>
-<ul class="slider">
-    <li>
-          <input type="radio" id="slide1" name="slide" checked>
-          <label for="slide1"></label>
-          <img src="https://media.santosfc.com.br/wp-content/uploads/2022/11/WhatsApp-Image-2022-11-12-at-17.36.26.jpeg" />
-    </li>
-    <li>
-          <input type="radio" id="slide2" name="slide">
-          <label for="slide2"></label>
-          <img src="https://s2.glbimg.com/tYbyWZRKbe921MSUusteg15VB3s=/0x0:1280x719/984x0/smart/filters:strip_icc()/i.s3.glbimg.com/v1/AUTH_bc8228b6673f488aa253bbcb03c80ec5/internal_photos/bs/2020/V/1/fpVcniSGS1BB3tApZBWg/whatsapp-image-2020-09-29-at-10.32.17.jpeg" />
-    </li>
-    <li>
-          <input type="radio" id="slide3" name="slide">
-          <label for="slide3"></label>
-          <img src="https://www.cnnbrasil.com.br/wp-content/uploads/sites/12/2021/06/32062_5DD801C6A6258250.jpg?w=876&h=484&crop=1" />
-    </li>
-</ul>
+        <div class="img_banner">
+            <div class="container">
+                <p>
+                   Bem vindo
+                </p>
+            </div>
+        </div>
     <script type="module" src="https://unpkg.com/ionicons@5.5.2/dist/ionicons/ionicons.esm.js"></script>
     <script nomodule src="https://unpkg.com/ionicons@5.5.2/dist/ionicons/ionicons.js"></script>
+    
 </body>
 </html>
 <script>
+    b_usuario.innerHTML = sessionStorage.NOME_USUARIO;
     const list = document.querySelectorAll('.list');
     function activelink() {
         list.forEach((item) =>

@@ -241,38 +241,37 @@ input {
 
 /*IDOLOS*/
 
-.sobreNos {
+.idolos {
   background-color: black;
   justify-content: center;
   align-items: center;
 }
 
-.sobreNos .container {
+.idolos .container {
   padding: 40px 0 40px 0;
   display: flex;
   align-items: center;
-  /*border: 3px solid red;*/
 }
 
-.sobreNos h1 {
+.idolos h1 {
   margin: 0 0 35px 0;
   text-align: center;
   color: white;
 }
 
-.sobreNos .imagens  {
+.idolos .imagens  {
   text-align: center;
   display: flex;
   flex-direction: column;
 }
 
-.sobreNos .box1, .sobreNos .box2 {
+.idolos .box1, .idolos .box2 {
   display: flex;
   justify-content: space-evenly;
   align-items: center;
 }
 
-.sobreNos .box-imagem {
+.idolos .box-imagem {
   text-align: center;
   display: inline-block;
   width: 320px;
@@ -280,19 +279,19 @@ input {
   border-radius: 15px;
 }
 
-.sobreNos .box-imagem p {
+.idolos .box-imagem p {
   font-size: 24px;
   font-weight: bold;
   color: white;
 }
 
-.sobreNos .box1 .box-imagem{
+.idolos .box1 .box-imagem{
   justify-content: space-evenly;
   margin-bottom: 20px;
   
 }
 
-.sobreNos img {
+.idolos img {
   border-radius: 50%;
   height: 250px;
   width: 250px;
