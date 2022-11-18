@@ -85,6 +85,11 @@ body{
     background: #818080;
 }
 
+.icon1 {
+    margin-top: 8px;
+    width: 30px;
+}
+
 /* .slider {
     display: block;
     height: 293px;
@@ -203,7 +208,7 @@ body{
     color: black;
     display: flex;
     font-size: 20px;
-    margin-left: 15%;
+    margin-left: 9%;
 }
 
 .img_banner {
