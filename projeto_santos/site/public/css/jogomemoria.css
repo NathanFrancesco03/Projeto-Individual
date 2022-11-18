@@ -1,6 +1,6 @@
   .jogo{
     width: 100vw;
-    height: 790px;
+    height: 625px;
     display: flex;
     justify-content: center;
     align-items: center;
@@ -21,4 +21,9 @@
     border-radius: 15px;
     width: 110px;
     height: 110px;
+  }
+
+  .tabuleiro img:active{
+    transform: rotateY(45deg);
+    transform-origin: 20% 40%;
   }
