@@ -7,6 +7,10 @@
     <title>SANTOS | QUIZ</title>  
     <link rel="icon" href="https://logodownload.org/wp-content/uploads/2017/02/santos-logo-escudo.png">
     <link rel="stylesheet" href="css/telalogado.css">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Lobster&family=Rubik+Marker+Hatch&display=swap" rel="stylesheet">
 </head>
 <body>
 <div class="conteudo">
@@ -37,7 +41,7 @@
                 </a>
             </li>
             <li class="list">
-                <a href="index.html">
+                <a class="sair" href="index.html">
                 <span class="icon"><ion-icon name="exit-outline"></ion-icon></span>
                 <span id="span_sair" class="title">Sair</span>
                 </a>
@@ -164,7 +168,6 @@
 </body>
 </html>
 <script>
-    b_usuario.innerHTML = sessionStorage.NOME_USUARIO;
     const list = document.querySelectorAll('.list');
     function activelink() {
         list.forEach((item) =>

@@ -57,6 +57,12 @@ body{
     text-decoration: none;
     color: black;
 }
+
+.navegation ul li .sair{
+    margin-top: 435px;
+    background-color: rgb(255, 139, 139);
+}
+
 .navegation ul li a .icon{
     position: relative;
     display: block;
@@ -106,12 +112,13 @@ body{
     text-align: center;
     justify-content: center;
     width: 40%;
-    height: 469px;
+    height: 560px;
     opacity: 96%;
 }
 
 .banner .containers button {
     background-color: black;
+    margin-top: 11px;
     border-radius: 100px;
     width: 100px;
     height: 30px;
@@ -170,6 +177,12 @@ body{
     border-radius: 70px;
     width: 180px;
     text-align: center;
+}
+
+.banner p {
+    font-family: 'Rubik Marker Hatch', cursive;
+    font-weight: normal;
+    font-size: 20px;
 }
 
 .banner button{
