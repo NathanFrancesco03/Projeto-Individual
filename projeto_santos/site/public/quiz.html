@@ -31,9 +31,15 @@
                 </a>
             </li>
             <li class="list">
+                <a href="ranking.html">
+                <span class="icon"><ion-icon name="bar-chart-outline"></ion-icon></span>
+                <span class="title">Ranking</span>
+                </a>
+            </li>
+            <li class="list">
                 <a href="index.html">
                 <span class="icon"><ion-icon name="exit-outline"></ion-icon></span>
-                <span class="title">Sair</span>
+                <span id="span_sair" class="title">Sair</span>
                 </a>
             </li>
         </ul>
@@ -168,7 +174,6 @@
     list.forEach((item) =>
     item.addEventListener('click',activelink)
     );
-    var pontos
     function botao() {
         var maior = Number(sel_maior.value)
         var paulista = Number(sel_pal.value)
@@ -183,18 +188,40 @@
         div_msg.innerHTML = " "
         div_tudo.style.display = "none"
         
-        pontos = maior + paulista + goleador + libertadores + copa + brasileiro + mundiais + neymar + trio + treinador
-        
-        for (let index = 1; index <= pontos; index++) {
+        pontosVar = maior + paulista + goleador + libertadores + copa + brasileiro + mundiais + neymar + trio + treinador
+        usuarioVar = sessionStorage.ID_USUARIO
+        nomeVar = sessionStorage.NOME_USUARIO
+
+
+        for (let index = 1; index <= pontosVar; index++) {
             div_msg.innerHTML += `<img style = width:50px;  src="https://upload.wikimedia.org/wikipedia/commons/thumb/2/20/Trof%C3%A9u_de_NFA.svg/512px-Trof%C3%A9u_de_NFA.svg.png" alt="">`          
         }
-        if (pontos >= 6) {
-            div_msg1.innerHTML += `<br> Parabéns você acertou ${pontos}/10` 
+        if (pontosVar >= 6) {
+            div_msg1.innerHTML += `<br> Parabéns você acertou ${pontosVar}/10` 
             div_msg2.innerHTML += `<br> Você conhece mesmo o Santastico <img style = width:80px;  src="https://toppng.com/uploads/preview/mascote-do-santos-11563338336jo7gqpt4xd.png" alt="">`
         }
         else{
-            div_msg1.innerHTML += ` <br> Você acertou ${pontos} <img style = width:80px; src="https://images.emojiterra.com/google/android-11/512px/1f62d.png" alt="">`
+            div_msg1.innerHTML += ` <br> Você acertou ${pontosVar} <img style = width:80px; src="https://images.emojiterra.com/google/android-11/512px/1f62d.png" alt="">`
         }
 
+        fetch("/usuarios/pontuar", {
+            method: "POST",
+            headers: {
+                "Content-Type": "application/json"
+            },
+            body: JSON.stringify({
+                pontoServer: pontosVar,
+                nomeServer: nomeVar,
+                usuarioServer: usuarioVar
+
+            })
+        }).then(function (resposta) {
+
+        }).catch(function (erro) {
+            console.log(erro);
+        })
+
+        return false;
     }
+    
 </script>

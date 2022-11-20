@@ -31,8 +31,16 @@ function cadastrar(nome, cpf, email, senha) {
     return database.executar(instrucao);
 }
 
+function pontuar(pontos, usuario, nome) {
+    var instrucao = `
+        INSERT INTO quiz (fkusuario, nome, pontos) VALUES (${usuario}, '${nome}', ${pontos});
+    `
+    return database.executar(instrucao);
+}
+
 module.exports = {
     entrar,
     cadastrar,
     listar,
+    pontuar
 };
