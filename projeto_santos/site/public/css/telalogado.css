@@ -28,6 +28,11 @@ body{
     transition: 0.9s;
 }
 
+.navegation a {
+    font-size: 18px;
+    text-transform: uppercase;
+}
+
 .navegation:hover{
     width: 300px;
 }
@@ -188,3 +193,33 @@ body{
 .banner button{
     margin-top: 3px;
 }
+
+/* Ranking */
+.div-results{
+    display: grid;
+    background-color: white;
+    height: 400px;
+    width: 500px;
+    margin: auto;
+    justify-content: center;
+    border: 10px solid  rgb(155, 149, 149);
+    border-radius: 10px;
+}
+
+.div-results h1{
+    margin-top: 10px;
+    text-align: center;
+}
+
+.rankin{
+    display: flex;
+    border-radius: 50px;
+    align-items: center;
+    justify-content: space-around;
+    background-color: black;
+    font-size: 22px;
+    color: white;
+    width: 400px;
+    margin-bottom: 1em;
+}
+

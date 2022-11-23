@@ -16,7 +16,7 @@
     <div class="navegation" >
         <ul>
             <li class="list">
-                <a href="jogomemoria1.html">
+                <a href="telalogado.html">
                 <span class="icon"><ion-icon name="home-outline"></ion-icon></span>
                 <span class="title">Home</span>
                 </a>
@@ -48,8 +48,8 @@
         </ul>
     </div>
 </div>
-<h1>RANKING GLOBAL</h1>       
 <div class="div-results">
+    <h1>RANKING GLOBAL</h1>       
     <div id="feed_container" class="feed-container">
     </div>
 </div>
@@ -61,7 +61,6 @@
 </html>
 <script>
     
-    b_usuario.innerHTML = sessionStorage.NOME_USUARIO;
     const list = document.querySelectorAll('.list');
     function activelink() {
         list.forEach((item) =>
@@ -90,47 +89,33 @@
                     feed.innerHTML = "";
                     for (let i = 0; i < resposta.length; i++) {
                         var publicacao = resposta[i];
+                        var divRankin = document.createElement("div")
 
                         // criando e manipulando elementos do HTML via JavaScript
                         var divPublicacao = document.createElement("div");
                         var spanID = document.createElement("span");
                         var spanTitulo = document.createElement("span");
                         var spanNome = document.createElement("span");
-                        var divDescricao = document.createElement("div");
+                        var divDescricao = document.createElement("span");
                         var divButtons = document.createElement("div");
                         var btnEditar = document.createElement("div");
                         var btnDeletar = document.createElement("div");
 
+                        var resultado = document.querySelector('.div-results')
+                        resultado.appendChild(divRankin);
+                        divRankin.className = 'rankin'
 
-                        spanID.innerHTML = "Posição: <b>" + (i + 1) + "</b>";
-                        spanTitulo.innerHTML = " Idusuario: <b>" + publicacao.fkusuario + "</b>";
-                        spanNome.innerHTML = "Nome: <b>" + publicacao.nome + "</b>";
-                        divDescricao.innerHTML = "Pontos: <b>" + publicacao.pontos + "</b>";
+                        divRankin.appendChild(spanID);
+                        divRankin.appendChild(spanNome);
+                        divRankin.appendChild(divDescricao);
+                        
+
+                        spanID.innerHTML = "Posição: <b>" + (i + 1) + "</b> ";
+                        spanNome.innerHTML = " Nome: <b>" + publicacao.nome + "</b>";
+                        divDescricao.innerHTML = " Pontos: <b>" + publicacao.pontos + "</b>";
                        
-                        divPublicacao.className = "publicacao";
-                        spanTitulo.id = "inputNumero" + publicacao.idAviso;
-                        spanNome.className = "publicacao-nome";
-                        spanTitulo.className = "publicacao-titulo";
-                        divDescricao.className = "publicacao-descricao";
+                       
 
-                        divButtons.className = "div-buttons"
-
-                        btnEditar.className = "publicacao-btn-editar"
-                        btnEditar.id = "btnEditar" + publicacao.idAviso;
-                        btnEditar.setAttribute("onclick", `editar(${publicacao.idAviso})`);
-
-                        btnDeletar.className = "publicacao-btn-editar"
-                        btnDeletar.id = "btnDeletar" + publicacao.idAviso;
-                        btnDeletar.setAttribute("onclick", `deletar(${publicacao.idAviso})`);
-
-                        divPublicacao.appendChild(spanID);
-                        divPublicacao.appendChild(spanNome);
-                        divPublicacao.appendChild(spanTitulo);
-                        divPublicacao.appendChild(divDescricao);
-                        divPublicacao.appendChild(divButtons);
-                        divButtons.appendChild(btnEditar);
-                        divButtons.appendChild(btnDeletar);
-                        feed.appendChild(divPublicacao);
                     }
 
     
