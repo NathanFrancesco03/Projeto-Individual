@@ -18,9 +18,10 @@ CREATE TABLE usuario (
 	senha VARCHAR(50)
 );
 
-CREATE TABLE quiz (
-	fkusuario int PRIMARY KEY,
-	nome VARCHAR(50),
-	pontos INT,
-	FOREIGN KEY (fkusuario) references usuario(id)
-)
+CREATE TABLE QUIZ (
+	idtentativa int primary key auto_increment,
+    fkusuario int,
+    foreign key (fkusuario) references usuario(id),
+    nome varchar(45),
+    pontos int
+);
