@@ -24,4 +24,8 @@ router.post("/pontuar", function (req, res) {
     usuarioController.pontuar(req, res);
 });
 
+router.post("/cronometrar", function (req, res) {
+    usuarioController.cronometrar(req, res);
+});
+
 module.exports = router;

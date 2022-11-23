@@ -107,10 +107,19 @@ function pontuar(req, res) {
            
 }
 
+function cronometrar(req, res) {
+    var tempo = req.body.secServer
+    var usuario = req.body.usuarioServer
+    var nome = req.body.nomeServer
+
+    usuarioModel.cronometrar(tempo, usuario, nome)
+}
+
 module.exports = {
     entrar,
     cadastrar,
     listar,
     pontuar,
+    cronometrar,
     testar
 }

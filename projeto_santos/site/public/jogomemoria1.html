@@ -49,16 +49,31 @@
         </ul>
     </div>
 </div>
-    <div class="jogo">
+<div class="jogo">
+      
         <h1>Jogo da memória</h1>
         <div class="tabuleiro"></div>
+        <h2 id="relogio">00:00</h2>
         <p>Pontuação: <span id="pontuacao"></span></p>
-    </div>
+      </div>
     <script type="module" src="https://unpkg.com/ionicons@5.5.2/dist/ionicons/ionicons.esm.js"></script>
     <script nomodule src="https://unpkg.com/ionicons@5.5.2/dist/ionicons/ionicons.js"></script>
 </body>
 </html>
 <script>
+    var secVar = 0 
+    var minVar = 0
+    var intervalo = setInterval(relogio,1000)
+        usuarioVar = sessionStorage.ID_USUARIO
+        nomeVar = sessionStorage.NOME_USUARIO
+    function relogio() {
+      secVar++
+      if (secVar == 60) {
+        minVar ++
+        secVar = 0
+      }
+      document.getElementById('relogio').innerHTML = `${minVar}:${secVar}`
+    }
     const list = document.querySelectorAll('.list');
     function activelink() {
         list.forEach((item) =>
@@ -173,6 +188,25 @@
     resultado.textContent = cartasCombinadas.length
     if (cartasCombinadas.length === arrayDeCartas.length / 2) {
       resultado.textContent = 'Parabéns! Você encontrou todas as cartas!'
+      clearInterval(intervalo)
+      fetch("/usuarios/cronometrar", {
+            method: "POST",
+            headers: {
+                "Content-Type": "application/json"
+            },
+            body: JSON.stringify({
+                secServer: secVar,
+                nomeServer: nomeVar,
+                usuarioServer: usuarioVar
+
+            })
+        }).then(function (resposta) {
+
+        }).catch(function (erro) {
+            console.log(erro);
+        })
+
+        return false;
     }
   }
   criarTabuleiro()

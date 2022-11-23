@@ -38,9 +38,17 @@ function pontuar(pontos, usuario, nome) {
     return database.executar(instrucao);
 }
 
+function cronometrar(tempo, usuario, nome){
+    var instrucao = `
+    insert into jogomemoria (fkusuario, nome, cronometrar) values (${usuario}, '${nome}', ${tempo});
+    `
+    return database.executar(instrucao);
+}
+
 module.exports = {
     entrar,
     cadastrar,
     listar,
+    cronometrar,
     pontuar
 };

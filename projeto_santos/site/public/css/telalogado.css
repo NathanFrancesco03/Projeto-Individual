@@ -223,3 +223,8 @@ body{
     margin-bottom: 1em;
 }
 
+/* CRONOMETRO */
+
+#relogio {
+    color: black;
+}
