@@ -45,7 +45,6 @@ function cronometrar(tempo, usuario, nome){
     return database.executar(instrucao);
 }
 
-
 module.exports = {
     entrar,
     cadastrar,

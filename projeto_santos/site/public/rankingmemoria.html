@@ -33,13 +33,13 @@
                 <span class="title">Jogo da memória</span>
                 </a>
             </li>
-            <li class="list active">
-                <a href="#">
+            <li class="list">
+                <a href="ranking.html">
                 <span class="icon"><ion-icon name="bar-chart-outline"></ion-icon></span>
                 <span class="title">Ranking quiz</span>
                 </a>
             </li>
-            <li class="list">
+            <li class="list active">
                 <a href="rankingmemoria.html">
                 <span class="icon"><ion-icon name="bar-chart-outline"></ion-icon></span>
                 <span class="title">Ranking memória</span>
@@ -55,7 +55,7 @@
     </div>
 </div>
 <div class="div-results">
-    <h1>RANKING GLOBAL QUIZ</h1>
+    <h1>RANKING GLOBAL MEMÓRIA</h1>
     <div id="feed_container" class="feed-container">
     </div>
 </div>
@@ -78,7 +78,7 @@
     );
 
     function atualizarFeed() {
-        fetch("/avisos/listar").then(function (resposta) {
+        fetch("/avisos/cronometro").then(function (resposta) {
             if (resposta.ok) {
                 if (resposta.status == 204) {
                     var feed = document.getElementById("feed_container");
@@ -118,7 +118,7 @@
 
                         spanID.innerHTML = "Posição: <b>" + (i + 1) + "</b> ";
                         spanNome.innerHTML = " Nome: <b>" + publicacao.nome + "</b>";
-                        divDescricao.innerHTML = " Pontos: <b>" + publicacao.pontos + "</b>";
+                        divDescricao.innerHTML = " Tempo: <b>" + publicacao.cronometrar + "</b>" + "Seg";
                        
                        
 
