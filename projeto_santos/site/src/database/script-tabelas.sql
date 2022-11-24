@@ -6,7 +6,7 @@
 comandos para mysql - banco local - ambiente de desenvolvimento
 */
 
-CREATE DATABASE santos;
+CCREATE DATABASE santos;
 
 USE santos;
 
@@ -24,4 +24,12 @@ CREATE TABLE QUIZ (
     foreign key (fkusuario) references usuario(id),
     nome varchar(45),
     pontos int
+);
+
+create table jogomemoria(
+	idjogomemoria int primary key auto_increment,
+    fkusuario int,
+    foreign key (fkusuario) references usuario(id),
+    nome varchar(45),
+    cronometrar int
 );
