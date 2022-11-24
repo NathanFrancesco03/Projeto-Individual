@@ -28,4 +28,5 @@ router.post("/cronometrar", function (req, res) {
     usuarioController.cronometrar(req, res);
 });
 
+
 module.exports = router;

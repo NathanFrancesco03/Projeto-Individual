@@ -115,6 +115,7 @@ function cronometrar(req, res) {
     usuarioModel.cronometrar(tempo, usuario, nome)
 }
 
+
 module.exports = {
     entrar,
     cadastrar,
