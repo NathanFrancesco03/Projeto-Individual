@@ -6,7 +6,7 @@
 comandos para mysql - banco local - ambiente de desenvolvimento
 */
 
-CCREATE DATABASE santos;
+CREATE DATABASE santos;
 
 USE santos;
 
