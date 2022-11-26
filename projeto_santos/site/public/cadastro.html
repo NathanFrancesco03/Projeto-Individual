@@ -116,15 +116,25 @@
         var emailVar = email_input.value;
         var senhaVar = senha_input.value;
         var confirmacaoSenhaVar = confirmacao_senha_input.value;
+        isValid = true
 
         if (nomeVar == "" || cpfVar == " " || emailVar == "" || senhaVar == "" || confirmacaoSenhaVar == "") {
-            cardErro.style.display = "block"
-            mensagem_erro.innerHTML = "(Mensagem de erro para todos os campos em branco)";
-
+            alert('Preencha corretamente, algum campo está em branco')
+            isValid = false
+        }
+        if (emailVar.indexOf('@') == -1 || emailVar.indexOf('.') == -1) {
+            alert('Preencha corretamente o campo EMAIL')
+            isValid = false
+        }
+        if (cpfVar.length != 11 || isNaN(cpfVar)) {
+            alert('Preencha corretamente o campo CPF')
+            isValid = false
+        }
+        if (isValid == false) {
             finalizarAguardar();
             return false;
-        }
-        else {
+        } 
+        else{
             setInterval(sumirMensagem, 5000)
         }
 
