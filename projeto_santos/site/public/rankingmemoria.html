@@ -11,7 +11,7 @@
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Lobster&display=swap" rel="stylesheet">
 </head>
-<body onload="atualizarFeed()">
+<body onload="atualizarFeed(),atualizarCards()">
 <div class="conteudo">
     <div class="navegation" >
         <ul>
@@ -54,11 +54,31 @@
         </ul>
     </div>
 </div>
-<div class="div-results">
-    <h1>RANKING GLOBAL MEMÓRIA</h1>
-    <div id="feed_container" class="feed-container">
+<div class="ranking">
+    <div class="div-results">
+        <h1>RANKING GLOBAL QUIZ</h1>
+        <div id="feed_container" class="feed-container">
+        </div>
     </div>
-</div>
+    
+        <div class="metricas">
+        <p>Quantidade de tentativas</p>
+        <p id="qtd_quiz"></p>
+    
+    
+        <p>Maior Tempo</p>
+        <p id="maior_nota"></p>
+    
+        <p>Menor Tempo</p>
+        <p id="menor_nota"></p>
+    
+        <p>Tempo Médio</p>
+        <p id="media"></p>
+    
+        </div>
+    
+    
+    </div>
 
     <script type="module" src="https://unpkg.com/ionicons@5.5.2/dist/ionicons/ionicons.esm.js"></script>
     <script nomodule src="https://unpkg.com/ionicons@5.5.2/dist/ionicons/ionicons.js"></script>
@@ -76,6 +96,38 @@
     list.forEach((item) =>
     item.addEventListener('click',activelink)
     );
+
+    function atualizarCards() {
+        fetch("/avisos/metricasm").then(function (resposta) {
+            if (resposta.ok) {
+                if (resposta.status == 204) {
+                    throw "Nenhum resultado encontrado!!";
+                }
+
+                resposta.json().then(function (resposta) {
+                    console.log("Dados recebidos: ", JSON.stringify(resposta));
+
+                    for (let i = 0; i < resposta.length; i++) {
+                        var publicacao = resposta[i];
+                        var contagem = publicacao.contagem
+                        var maiorNota = publicacao.notaMaxima
+                        var menorNota = publicacao.menorNota
+                        var mediaNota = publicacao.media
+                        qtd_quiz.innerHTML = `${contagem}`
+                        maior_nota.innerHTML = `${maiorNota}`
+                        menor_nota.innerHTML = `${menorNota}`
+                        media.innerHTML = `${mediaNota}`
+                    }
+
+                  
+                });
+            } else {
+                throw ('Houve um erro na API!');
+            }
+        }).catch(function (resposta) {
+            console.error(resposta);
+        });
+    }
 
     function atualizarFeed() {
         fetch("/avisos/cronometro").then(function (resposta) {

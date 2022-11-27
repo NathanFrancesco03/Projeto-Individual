@@ -1,10 +1,3 @@
--- Arquivo de apoio, caso você queira criar tabelas como as aqui criadas para a API funcionar.
--- Você precisa executar os comandos no banco de dados para criar as tabelas,
--- ter este arquivo aqui não significa que a tabela em seu BD estará como abaixo!
-
-/*
-comandos para mysql - banco local - ambiente de desenvolvimento
-*/
 
 CREATE DATABASE santos;
 
@@ -24,6 +17,12 @@ CREATE TABLE QUIZ (
     foreign key (fkusuario) references usuario(id),
     nome varchar(45),
     pontos int
+);
+
+create table endereço(
+cep char(8),
+fkusuario int,
+foreign key (fkusuario) references usuario(id)
 );
 
 create table jogomemoria(
