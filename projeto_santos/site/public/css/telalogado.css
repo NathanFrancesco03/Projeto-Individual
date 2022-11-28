@@ -228,6 +228,11 @@ body{
     border: 10px solid  rgb(155, 149, 149);
 }
 
+.metricas h4{
+    background-color: black;
+    color: white;
+}
+
 .ranking{
     display: flex;
     align-items: center;

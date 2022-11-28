@@ -11,7 +11,7 @@
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Lobster&display=swap" rel="stylesheet">
 </head>
-<body onload="atualizarFeed(),atualizarCards()">
+<body onload="atualizar(),atualizarCards()">
 <div class="conteudo">
     <div class="navegation" >
         <ul>
@@ -62,18 +62,18 @@
     </div>
     
         <div class="metricas">
-        <p>Quantidade de tentativas</p>
-        <p id="qtd_quiz"></p>
+        <h4>Quantidade de tentativas</h4>
+        <p id="qtd_quiz">0</p>
     
     
-        <p>Maior Tempo</p>
-        <p id="maior_nota"></p>
+        <h4>Maior Tempo</h4>
+        <p id="maior_nota">0</p>
     
-        <p>Menor Tempo</p>
-        <p id="menor_nota"></p>
+        <h4>Menor Tempo</h4>
+        <p id="menor_nota">0</p>
     
-        <p>Tempo Médio</p>
-        <p id="media"></p>
+        <h4>Tempo Médio</h4>
+        <p id="media">0</p>
     
         </div>
     
@@ -117,8 +117,16 @@
                         maior_nota.innerHTML = `${maiorNota}`
                         menor_nota.innerHTML = `${menorNota}`
                         media.innerHTML = `${mediaNota}`
+                        if (maiorNota == null) {
+                            maior_nota.innerHTML = `0`
+                        }
+                        if (menorNota == null) {
+                            maior_nota.innerHTML = `0`
+                        }
+                        if (mediaNota == null) {
+                            media.innerHTML = `0`
+                        }
                     }
-
                   
                 });
             } else {
@@ -129,7 +137,7 @@
         });
     }
 
-    function atualizarFeed() {
+    function atualizar() {
         fetch("/avisos/cronometro").then(function (resposta) {
             if (resposta.ok) {
                 if (resposta.status == 204) {
