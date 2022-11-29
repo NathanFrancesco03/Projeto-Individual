@@ -56,7 +56,7 @@
 </div>
 <div class="ranking">
     <div class="div-results">
-        <h1>RANKING GLOBAL QUIZ</h1>
+        <h1>RANKING MEMÓRIA</h1>
         <div id="feed_container" class="feed-container">
         </div>
     </div>
@@ -114,17 +114,17 @@
                         var menorNota = publicacao.menorNota
                         var mediaNota = publicacao.media
                         qtd_quiz.innerHTML = `${contagem}`
-                        maior_nota.innerHTML = `${maiorNota}`
-                        menor_nota.innerHTML = `${menorNota}`
-                        media.innerHTML = `${mediaNota}`
+                        maior_nota.innerHTML = `${maiorNota} Segundos`
+                        menor_nota.innerHTML = `${menorNota} Segundos`
+                        media.innerHTML = `${mediaNota} Segundos`
                         if (maiorNota == null) {
                             maior_nota.innerHTML = `0`
                         }
                         if (menorNota == null) {
-                            maior_nota.innerHTML = `0`
+                            menor_nota.innerHTML = `0`
                         }
                         if (mediaNota == null) {
-                            media.innerHTML = `0`
+                            media.innerHTML = `0` 
                         }
                     }
                   
